@@ -2,17 +2,19 @@ package common;
 
 import api.Logger;
 import api.LoggerContext;
+import context.Log4jContext;
 import context.SimpleContext;
 import logger.SimpleLogger;
 
 public class TestSimpleLogger {
 
     public static void main(String[] args) {
-        LoggerContext context = new SimpleContext();
-        Logger simpleLogger = context.getLogger("spencer");
-        simpleLogger.info("info");
-        simpleLogger.debug("debug");
-        simpleLogger.info(new People("spencer", 4));
-
+        LoggerContext context = new Log4jContext();
+        Logger logger = context.getLogger("spencer");
+        logger.info("abc");
+        logger.info("efg");
+        Logger logger2 = context.getLogger("david");
+        logger2.info("hig");
+        logger2.info("kef");
     }
 }
