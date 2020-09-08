@@ -1,10 +1,8 @@
 package common;
 
-import api.Logger;
-import api.LoggerContext;
-import context.Log4jContext;
-import context.SimpleContext;
-import logger.SimpleLogger;
+import com.spencer.api.Logger;
+import com.spencer.api.LoggerContext;
+import com.spencer.context.Log4jContext;
 
 public class TestSimpleLogger {
 
