@@ -2,9 +2,10 @@ package com.spencer.layout;
 
 import com.spencer.api.Layout;
 import com.spencer.api.LogEvent;
-import com.spencer.plugin.Plugin;
+import com.spencer.plugins.Plugin;
+import com.spencer.plugins.PluginFactory;
 
-@Plugin(name = "SimpleLayout", elementType = "com/spencer/layout")
+@Plugin(name = "SimpleLayout", elementType = "layout")
 public class SimpleLayout implements Layout {
     @Override
     public String formatEvent(LogEvent logEvent) {
@@ -16,4 +17,10 @@ public class SimpleLayout implements Layout {
 
         return builder.toString();
     }
+
+    @PluginFactory
+    public Layout createLayout(){
+        return new SimpleLayout();
+    }
+
 }

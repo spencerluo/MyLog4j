@@ -1,11 +1,15 @@
 package com.spencer.appender;
 
+import com.spencer.api.Appender;
 import com.spencer.api.Layout;
-import com.spencer.plugin.Plugin;
+import com.spencer.plugins.Plugin;
+import com.spencer.plugins.PluginAttr;
+import com.spencer.plugins.PluginElement;
+import com.spencer.plugins.PluginFactory;
 
 import java.io.OutputStream;
 
-@Plugin(name = "console", elementType = "com/spencer/appender")
+@Plugin(name = "console", elementType = "appender")
 public class ConsoleAppender extends OutputStreamAppender {
 
     public enum Target {
@@ -19,7 +23,10 @@ public class ConsoleAppender extends OutputStreamAppender {
         super(name, layout, outputStream, true);
     }
 
-    public static ConsoleAppender createAppender(String name, Layout layout, String t){
+    @PluginFactory
+    public static Appender createAppender(@PluginAttr("name") String name,
+                                          @PluginElement("layout") Layout layout,
+                                          @PluginAttr("target") String t){
         Target target = t == null ? Target.SYSTEM_OUT : Target.valueOf(t);
         return new ConsoleAppender(name, layout, getOutputStream(target));
     }
