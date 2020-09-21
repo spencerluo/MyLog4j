@@ -38,6 +38,13 @@ public class LoggerConfig {
         this.appenderRefs = appenderRefs;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
 
     public List<AppenderRef> getAppenderRefs() {
         return appenderRefs;
